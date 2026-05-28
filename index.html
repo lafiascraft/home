@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lafia Scraft | Elegant & Comfortable Hijab</title>
+    
+    <!-- Import Font Premium (Playfair untuk Heading, Poppins untuk Teks) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-main: #FDFCF8;        /* Putih gading / bersih */
+            --surface: #FFFFFF;        /* Putih murni untuk card */
+            --primary: #E8DFD5;        /* Beige lembut */
+            --primary-dark: #BCAAA4;   /* Soft brown */
+            --accent: #8D7B68;         /* Earthy dark brown (Warna utama brand) */
+            --text-dark: #2C2825;      /* Hitam kecoklatan untuk kontras teks */
+            --text-muted: #756D66;     /* Abu kecoklatan untuk paragraf */
+            --shadow-sm: 0 4px 12px rgba(141, 123, 104, 0.05);
+            --shadow-md: 0 12px 32px rgba(141, 123, 104, 0.08);
+            --radius-sm: 12px;
+            --radius-lg: 20px;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .brand-font {
+            font-family: 'Playfair Display', serif;
+            color: var(--text-dark);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            background: rgba(253, 252, 248, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1000;
+            transition: var(--transition);
+            border-bottom: 1px solid transparent;
+        }
+
+        .navbar.scrolled {
+            padding: 15px 0;
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid rgba(141, 123, 104, 0.1);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-dark);
+            padding: 5px;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 80px;
+            position: relative;
+            background: linear-gradient(135deg, #FDFCF8 0%, #F0EAE1 100%);
+            overflow: hidden;
+        }
+
+        /* Dekorasi background minimalis */
+        .hero-decor {
+            position: absolute;
+            width: 40vw;
+            height: 40vw;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 70%);
+            top: -10vw;
+            right: -10vw;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            text-align: center;
+        }
+
+        .hero-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 6vw, 68px);
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: clamp(16px, 2vw, 18px);
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            padding: 0 20px;
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid transparent;
+            text-align: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--surface);
+            box-shadow: 0 8px 24px rgba(141, 123, 104, 0.25);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--text-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(44, 40, 37, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent);
+            color: var(--surface);
+        }
+
+        .section-header {
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(32px, 4vw, 42px);
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about-text {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 18px;
+            color: var(--text-muted);
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+            line-height: 1.8;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--surface);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 40px 30px;
+            border-radius: var(--radius-lg);
+            background: var(--bg-main);
+            border: 1px solid rgba(232, 223, 213, 0.5);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+            background: var(--surface);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--primary);
+            color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .products {
+            background-color: var(--bg-main);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 32px;
+        }
+
+        .product-card {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Badge Best Seller */
+        .badge-bestseller {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background-color: var(--accent);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 500;
+            z-index: 2;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 10px rgba(141, 123, 104, 0.3);
+        }
+
+        .product-img-wrapper {
+            position: relative;
+            padding-top: 133%; /* 3:4 Aspect Ratio */
+            overflow: hidden;
+            background-color: var(--primary);
+        }
+
+        /* Overlay elegant saat di hover */
+        .product-img-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(44, 40, 37, 0.4), transparent 50%);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .product-card:hover .product-img-wrapper::after {
+            opacity: 1;
+        }
+
+        .product-img-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background-color: #fdfcf8;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .product-card:hover .product-img-wrapper img {
+            transform: scale(1.08);
+        }
+
+        .product-info {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .product-desc {
+            color: var(--text-muted);
+            font-size: 13px;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .product-price {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Custom style untuk tombol pesan di dalam card */
+        .btn-wa-product {
+            width: 100%;
+            background-color: var(--surface);
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 12px;
+            border-radius: var(--radius-sm);
+        }
+
+        .btn-wa-product:hover {
+            background-color: var(--accent);
+            color: var(--surface);
+            border-color: var(--accent);
+        }
+
+        .testimonials {
+            background-color: var(--surface);
+        }
+
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testi-card {
+            padding: 40px 30px;
+            border-radius: var(--radius-lg);
+            background: var(--bg-main);
+            border: 1px solid rgba(232, 223, 213, 0.5);
+            position: relative;
+        }
+
+        .stars {
+            color: #D4AF37;
+            font-size: 16px;
+            margin-bottom: 16px;
+            letter-spacing: 2px;
+        }
+
+        .testi-text {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            line-height: 1.8;
+        }
+
+        .testi-name {
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--text-dark);
+            border-top: 1px solid var(--primary);
+            padding-top: 16px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand {
+            font-size: 28px;
+            color: var(--surface);
+            margin-bottom: 16px;
+        }
+
+        .footer-heading {
+            font-size: 18px;
+            color: var(--surface);
+            margin-bottom: 24px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 24px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* Animasi Utility */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+
+        /* Icon SVG */
+        svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(255,255,255,0.98);
+                flex-direction: column;
+                padding: 30px 20px;
+                gap: 24px;
+                box-shadow: var(--shadow-md);
+                transform: translateY(-150%);
+                opacity: 0;
+                transition: var(--transition);
+                pointer-events: none;
+                border-top: 1px solid var(--primary);
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .nav-links a {
+                font-size: 16px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .section-padding {
+                padding: 70px 0;
+            }
+
+            .btn {
+                width: 100%;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="container nav-content">
+            <a href="#hero" class="brand-logo brand-font">Lafia.</a>
+            
+            <div class="nav-links" id="navLinks">
+                <a href="#hero">Beranda</a>
+                <a href="#about">Tentang Kami</a>
+                <a href="#features">Keunggulan</a>
+                <a href="#products">Koleksi</a>
+                <a href="#testimonials">Testimoni</a>
+            </div>
+
+            <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle Menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px; height:28px;">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <header id="hero" class="hero">
+        <div class="hero-decor"></div>
+        <div class="container hero-content">
+            <span class="hero-subtitle fade-up">Premium Hijab Collection</span>
+            <h1 class="fade-up delay-1">Simple, Elegant, and Comfortable for Everyday.</h1>
+            <p class="fade-up delay-2">Menghadirkan koleksi hijab eksklusif dengan material pilihan terbaik. Temukan kenyamanan berbalut keanggunan dalam setiap helainya.</p>
+            
+            <div class="btn-group fade-up delay-3">
+                <a href="#products" class="btn btn-primary">Lihat Koleksi</a>
+                <button onclick="hubungiWA()" class="btn btn-outline">
+                    <!-- Icon WhatsApp Mini -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    Order via WhatsApp
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="section-padding" style="background-color: var(--surface);">
+        <div class="container text-center">
+            <div class="section-header fade-up">
+                <h2>Kisah Kami</h2>
+                <div style="width: 60px; height: 2px; background: var(--accent); margin: 20px auto;"></div>
+            </div>
+            <p class="about-text fade-up delay-1">
+                "Berawal dari keinginan untuk menghadirkan hijab yang tidak hanya cantik dipandang, namun juga nyaman dikenakan sepanjang hari. Lafia Scraft hadir sebagai solusi bagi wanita muslimah modern yang menghargai kualitas, kesederhanaan, dan keanggunan sejati."
+            </p>
+        </div>
+    </section>
+
+    <section id="features" class="features section-padding">
+        <div class="container">
+            <div class="section-header text-center fade-up">
+                <h2>Kenapa Memilih Lafia?</h2>
+                <p>Dedikasi kami untuk memberikan pengalaman berhijab terbaik untuk Anda.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card fade-up">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 32px; height: 32px;"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>
+                    </div>
+                    <h3>Material Premium</h3>
+                    <p>Dipilih dari bahan berkualitas tinggi yang sangat adem, ringan, dan menyerap keringat seharian.</p>
+                </div>
+
+                <div class="feature-card fade-up delay-1">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 32px; height: 32px;"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+                    </div>
+                    <h3>Harga Terjangkau</h3>
+                    <p>Kualitas butik mewah dan jahitan butik dengan harga yang sangat bersahabat.</p>
+                </div>
+
+                <div class="feature-card fade-up delay-2">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 32px; height: 32px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <h3>Desain Elegan</h3>
+                    <p>Cutting yang pas dan warna-warna timeless yang sangat mudah di-mix and match.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="products section-padding">
+        <div class="container">
+            <div class="section-header text-center fade-up">
+                <h2>Koleksi Eksklusif</h2>
+                <p>Pilih hijab favoritmu dan tampil percaya diri setiap saat.</p>
+            </div>
+
+            <div class="product-grid">
+                
+                <!-- Produk 1 -->
+                <div class="product-card fade-up">
+                    <div class="badge-bestseller">Best Seller</div>
+                    <div class="product-img-wrapper">
+                        <img src="https://i.ibb.co.com/MmvF8Qk/1.png" alt="Hijab Voal Premium" loading="lazy" onerror="this.src='https://placehold.co/600x800/E8DFD5/8D7B68?text=Foto+Hijab\nVoal+Cream'">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Hijab Voal Premium</h3>
+                        <p class="product-desc">Karakteristik bahan yang adem dan nyaman dipakai seharian tanpa gerah.</p>
+                        <div class="product-price">Rp25.000</div>
+                        <button onclick="orderWA('Hijab Voal Premium')" class="btn btn-wa-product">
+                            Pesan Sekarang
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produk 2 -->
+                <div class="product-card fade-up delay-1">
+                    <div class="product-img-wrapper">
+                        <img src="https://i.ibb.co.com/zVGMM4k8/2.png" alt="Hijab Bergo Daily" loading="lazy" onerror="this.src='https://placehold.co/600x800/E8DFD5/8D7B68?text=Foto+Pashmina\nLatte'">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Hijab Bergo Daily</h3>
+                        <p class="product-desc">Bahan jatuh, ringan, dan sangat mudah dibentuk mengikuti bentuk wajah.</p>
+                        <div class="product-price">Rp25.000</div>
+                        <button onclick="orderWA('Hijab Bergo Daily')" class="btn btn-wa-product">
+                            Pesan Sekarang
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produk 3 -->
+                <div class="product-card fade-up delay-2">
+                    <div class="product-img-wrapper">
+                        <img src="https://i.ibb.co.com/whng4wHr/3.png" alt="Hijab Printed Scraft" loading="lazy" onerror="this.src='https://placehold.co/600x800/E8DFD5/8D7B68?text=Foto+Bella\nSquare'">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Hijab Printed Scraft</h3>
+                        <p class="product-desc">Pilihan tepat untuk gaya casual hangout maupun acara formal elegan.</p>
+                        <div class="product-price">Rp40.000</div>
+                        <button onclick="orderWA('Hijab Printed Scraft')" class="btn btn-wa-product">
+                            Pesan Sekarang
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produk 4 -->
+                <div class="product-card fade-up">
+                    <div class="badge-bestseller" style="background-color: #D4AF37;">Premium</div>
+                    <div class="product-img-wrapper">
+                        <img src="https://i.ibb.co.com/j9c347KF/4.png" alt="Hijab Instan" loading="lazy" onerror="this.src='https://placehold.co/600x800/E8DFD5/8D7B68?text=Foto+Premium\nNude'">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Hijab Instan</h3>
+                        <p class="product-desc">Sentuhan premium look dengan bahan ekstra lembut dan jahitan tepi butik.</p>
+                        <div class="product-price">Rp40.000</div>
+                        <button onclick="orderWA('Hijab Instan')" class="btn btn-wa-product">
+                            Pesan Sekarang
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produk 5 -->
+                <div class="product-card fade-up delay-1">
+                    <div class="product-img-wrapper">
+                        <img src="https://i.ibb.co.com/jk7QThmg/5.png" alt="Hijab Satin Silky" loading="lazy" onerror="this.src='https://placehold.co/600x800/E8DFD5/8D7B68?text=Foto+Daily\nMocca'">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Hijab Satin Silky</h3>
+                        <p class="product-desc">Tampil stylish tanpa ribet. Sangat nyaman digunakan beraktivitas.</p>
+                        <div class="product-price">Rp40.000</div>
+                        <button onclick="orderWA('Hijab Satin Silky')" class="btn btn-wa-product">
+                            Pesan Sekarang
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials section-padding">
+        <div class="container">
+            <div class="section-header text-center fade-up">
+                <h2>Kata Pelanggan</h2>
+                <p>Cerita mereka setelah menggunakan koleksi Lafia Scraft.</p>
+            </div>
+            
+            <div class="testi-grid">
+                <div class="testi-card fade-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="testi-text">"Suka banget sama bahan voalnya! Bener-bener adem dipakai aktivitas seharian di luar ruangan. Warnanya juga cantik-cantik banget dan elegan."</p>
+                    <div class="testi-name">Sarah A.</div>
+                </div>
+
+                <div class="testi-card fade-up delay-1">
+                    <div class="stars">★★★★★</div>
+                    <p class="testi-text">"Pashmina lattenya juara. Gampang banget dibentuk dan nggak nerawang. Harga 25 ribu tapi kualitasnya kayak di mall. Next pasti order lagi!"</p>
+                    <div class="testi-name">Nabila F.</div>
+                </div>
+
+                <div class="testi-card fade-up delay-2">
+                    <div class="stars">★★★★★</div>
+                    <p class="testi-text">"Packagingnya rapi dan hijab Premium Nude-nya emang beneran premium look. Dipakai ke acara formal kelihatan mewah banget. Recommended!"</p>
+                    <div class="testi-name">Dinda M.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                
+                <!-- Footer Brand -->
+                <div class="fade-up">
+                    <div class="footer-brand brand-font">Lafia Scraft.</div>
+                    <p style="color: rgba(255,255,255,0.6); margin-bottom: 20px; font-size: 14px;">
+                        Menghadirkan kenyamanan dan keanggunan dalam setiap helai hijab untuk menemani hari-harimu.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="fade-up delay-1">
+                    <h4 class="footer-heading">Eksplorasi</h4>
+                    <ul class="footer-links">
+                        <li><a href="#hero">Beranda</a></li>
+                        <li><a href="#about">Tentang Kami</a></li>
+                        <li><a href="#products">Koleksi Produk</a></li>
+                        <li><a href="#testimonials">Testimoni</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kontak & Social -->
+                <div class="fade-up delay-2">
+                    <h4 class="footer-heading">Hubungi Kami</h4>
+                    <ul class="footer-links">
+                        <li style="margin-bottom: 20px;">
+                            <button onclick="hubungiWA()" class="btn btn-outline" style="border-color: rgba(255,255,255,0.3); color: white; padding: 10px 20px;">
+                                Chat via WhatsApp
+                            </button>
+                        </li>
+                        <li>
+                            <a href="#" style="display: inline-flex; align-items: center; gap: 8px;">
+                                <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                                @lafiascraft (Instagram)
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom fade-up delay-3">
+                &copy; 2026 Lafia Scraft. All rights reserved. Designed for elegance.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /* --- 1. KONFIGURASI NOMOR WHATSAPP --- */
+        // Sesuai dengan instruksi, gunakan nomor ini
+        const nomorWAAdmin = "6289508581143";
+
+        /* --- 2. FUNGSI PEMESANAN WHATSAPP --- */
+        function orderWA(namaProduk) {
+            const pesan = `Halo Lafia Scraft, saya ingin memesan ${namaProduk}`;
+            const urlWA = `https://wa.me/${nomorWAAdmin}?text=${encodeURIComponent(pesan)}`;
+            window.open(urlWA, '_blank');
+        }
+
+        /* --- 3. FUNGSI HUBUNGI WA UMUM --- */
+        function hubungiWA() {
+            const pesan = "Halo Lafia Scraft, saya tertarik dengan koleksi hijabnya dan ingin bertanya.";
+            const urlWA = `https://wa.me/${nomorWAAdmin}?text=${encodeURIComponent(pesan)}`;
+            window.open(urlWA, '_blank');
+        }
+
+        /* --- 4. NAVBAR STICKY EFFECT --- */
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 30) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        /* --- 5. MOBILE MENU TOGGLE --- */
+        const menuBtn = document.getElementById('menuBtn');
+        const navLinks = document.getElementById('navLinks');
+        const navItems = navLinks.querySelectorAll('a');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Tutup menu saat link diklik (di mobile)
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        /* --- 6. SMOOTH SCROLL ANIMATION (FADE-UP) --- */
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15 
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const fadeElements = document.querySelectorAll('.fade-up');
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
